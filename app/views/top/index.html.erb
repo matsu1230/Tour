@@ -1,0 +1,100 @@
+<%= javascript_include_tag "tab1" %>
+<%= javascript_include_tag "treemenue" %> 
+        <div id="tab-wrapper">
+
+            <ul id="tab">
+                <li class="present" id="tab-a1"><a href="#news1" _fcksavedurl="#news1">空</a></li>
+                <li><a href="#news2" _fcksavedurl="#news2">海</a></li>
+                <li><a href="#news3" _fcksavedurl="#news3">山</a></li>
+                <li><a href="#news4" _fcksavedurl="#news4">乗り物</a></li>
+                <li><a href="#news5" _fcksavedurl="#news5">観光</a></li>
+            </ul>
+
+            <div id="news1">
+                <p><%= link_to "空ツアー",{:controller => 'trips', :action => 'search', :q => '空'} %></p>
+                    <div class="treemenu">
+                        <p class="lv1btn">ヘリ</p>
+                        <div class="lv1body">
+                            <p><%= image_tag("guide.png") %><a href="#"><%= link_to %></p>
+                            <p><%= image_tag("guide2.png") %><a href="#">ツアー2</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="treemenu">
+                        <p class="lv1btn">飛行機</p>
+                        <div class="lv1body">
+                            <p><img src="guide2.png" alt=""><a href="#">ツアー1</a></p>
+                            <p><img src="guide2.png" alt=""><a href="#">ツアー2</a></p>
+                        </div>
+                    </div>
+                </p>
+            </div>
+
+            <div id="news2">
+                <p><%= link_to "海ツアー",{:controller => 'trips', :action => 'search', :q => '海'} %></p>
+                    <div class="treemenu">
+                        <p class="lv1btn">ダイビング</p>
+                        <div class="lv1body">
+                            <p><img src="guide2.png" alt=""><a href="#">ツアー1</a></p>
+                            <p><img src="guide2.png" alt=""><a href="#">ツアー2</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="treemenu">
+                        <p class="lv1btn">釣り</p>
+                        <div class="lv1body">
+                            <p><img src="guide2.png" alt=""><a href="#">ツアー1</a></p>
+                            <p><img src="guide2.png" alt=""><a href="#">ツアー2</a></p>
+                        </div>
+                    </div>
+                </p>
+            </div>
+
+            <div id="news3">
+                <p><%= link_to "山ツアー",{:controller => 'trips', :action => 'search', :q => '山'} %></p>
+                    <div class="treemenu">
+                        <p class="lv1btn">キャンピング</p>
+                        <div class="lv1body">
+                            <p><img src="guide2.png" alt=""><a href="#">ツアー1</a></p>
+                            <p><img src="guide2.png" alt=""><a href="#">ツアー2</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="treemenu">
+                        <p class="lv1btn">登山</p>
+                        <div class="lv1body">
+                            <p><img src="guide2.png" alt=""><a href="#">ツアー1</a></p>
+                            <p><img src="guide2.png" alt=""><a href="#">ツアー2</a></p>
+                        </div>
+                    </div>
+                </p>
+            </div>
+
+            <div id="news4">
+                <p><%= link_to "乗り物ツアー",{:controller => 'trips', :action => 'search', :q => '乗り物'} %></p>
+                    <div class="treemenu">
+                        <p class="lv1btn">ヘリ</p>
+                        <div class="lv1body">
+                            <p><img src="guide2.png" alt=""><a href="#">ツアー1</a></p>
+                            <p><img src="guide2.png" alt=""><a href="#">ツアー2</a></p>
+                        </div>
+                    </div>
+                </p>
+            </div>
+
+            <div id="news5">
+                  <p><%= link_to "観光ツアー",{:controller => 'trips', :action => 'search', :q => '観光'} %></p>
+                    <div class="treemenu">
+                        <p class="lv1btn">名所</p>
+                        <div class="lv1body">
+                            <p><img src="guide2.png" alt=""><a href="#">ツアー1</a></p>
+                            <p><img src="guide2.png" alt=""><a href="#">ツアー2</a></p>
+                        </div>
+                    </div>
+                </p>
+            </div>
+
+<%= javascript_include_tag "tab2" %> 
+        </div>  
+
+   

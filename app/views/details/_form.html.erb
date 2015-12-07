@@ -1,0 +1,26 @@
+    <table class="attr">
+
+       <%= form.hidden_field :trip_id %>
+
+      <tr>
+        <th><%= form.label :start %></th>
+        <td><%= form.date_select :start, start_year: Time.now.year, end_year: 2030, use_month_numbers: true %></td>
+      </tr>
+      <tr>
+          <th><%= form.label :end %></th>
+            <td><%= form.date_select :end, start_year: Time.now.year, end_year: 2030, use_month_numbers: true %></td>
+      </tr>
+      <tr>
+       <th><%= form.label :price %></th>
+       <td><%= form.text_field :price, size: 10 %>円</td>
+      </tr>
+　　　　　　<tr>
+        <th><%= form.label :limit %></th>
+        <td><%= form.text_field :limit, size: 5 %></td>
+      </tr>
+　　　　　　<tr>
+        <th><%= form.label :lowst %></th>
+        <td><%= form.text_field :lowst, size: 5 %></td>
+      </tr>
+    </table>
+

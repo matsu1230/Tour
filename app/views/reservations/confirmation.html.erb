@@ -1,0 +1,47 @@
+<% @page_title = "予約確認" %>
+<h1><%= @page_title %></h1>
+<%= render "body" %>
+<table class="attr">
+  <tr>
+    <th>ツアー料理</th>
+    <td><%= @reservation.food %></td>
+  </tr>
+  <tr>
+    <th>予約人数</th>
+    <td><%= @reservation.people %></td>
+  </tr>
+  <tr>
+     <th>合計金額</th>
+     <td><%= @sum %></td>
+  </tr>
+</table>
+<p><%= link_to "予約内容変更", :back %></p>
+<table class="attr">
+  <tr>
+    <th>名前</th>
+    <td><%= @member.fullname %></td>
+  </tr>
+    <th>メールアドレス</th>
+    <td><%= @member.email %></td>
+  </tr>
+  </tr>
+    <th>住所</th>
+    <td><%= @member.address %></td>
+  </tr>
+  </tr>
+    <th>電話番号</th>
+    <td><%= @member.phone %></td>
+  </tr>
+
+</table>
+<p><%= link_to "会員情報変更", [:edit, @member] %></p>
+
+<%= form_for  @reservation do |form| %>
+  <%= form.hidden_field :detail_id %>
+  <%= form.hidden_field :member_id %>
+  <%= form.hidden_field :people %>
+  <%= form.hidden_field :food %>
+    <p><%= form.submit %></p>
+<% end %>
+
+

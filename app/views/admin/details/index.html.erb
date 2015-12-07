@@ -1,0 +1,24 @@
+<% @page_title = "ツアー一覧" %>
+
+<h1><%= @page_title %></h1>
+<p><%= link_to "ツアーの新規登録", :new_tour %></p>
+
+<% if @tour.present? %>
+<table class="attr">
+  <tr>
+    <th>ツアー名</th>
+    <th>ツアー内容</th>
+
+  </tr>
+  <% @tour.each do |tour| %>
+  <tr>
+    <td><%= link_to simple_format(tour.tourname), tour %></td>
+    <td><%= simple_format(tour.tourcontent) %></td>
+    <td><%= tour.category %></td>
+    <td><%= tour.subcategory %></td>
+  </tr>
+  <% end %>
+</table>
+<% else %>
+<p>ツアーがありません。</p>
+<% end %>

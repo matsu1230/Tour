@@ -1,0 +1,80 @@
+<% @page_title = "ツアー" %>
+
+<h1><%= @page_title %></h1>
+
+<table class="attr">
+  <tr>
+    <th>ツアー名</th>
+    <td><%= @trip.tourname %></td>
+  </tr>
+  <tr>
+    <th>ツアー内容</th>
+    <td><%= simple_format(@trip.tourcontent) %></td>
+  </tr>
+    <th>カテゴリー</th>
+    <td><%= @trip.category %></td>
+  </tr>
+  </tr>
+    <th>サブカテゴリー</th>
+    <td><%= @trip.subcategory %></td>
+  </tr>
+</table>
+
+<% if @detail %>
+<table class="attr">
+  <% @detail.each do |detail| %>
+  <tr>
+    <th>ツアー開始日</th>
+    <td><%= detail.start %></td>
+  </tr>
+  <tr>
+    <th>ツアー終了日</th>
+    <td><%= detail.end %></td>
+  </tr>
+  <tr>
+    <th>価格(１人あたり)</th>
+    <td><%= detail.price %></td>
+  </tr>
+  <tr>
+    <th>最大人数</th>
+    <td><%= detail.limit %></td>
+  </tr>
+  <tr>
+     <th>残り人数</th>
+     <% if @num != detail.limit %>
+     <td><%= @num %></td>
+     <% else %>
+     <td><%= detail.limit %></td>
+     <% end %>
+  </tr>
+<% unless @current_member %>
+<p><%= @people %></p>
+<td><%= link_to "予約", :controller => 'reservations', :action => 'new', :id => params[:id], :detail => detail.id %></td>
+<% else %>
+<% if @flag != 1 %>
+<% if @num > 0 %>
+<td><%= link_to "予約", :controller => 'reservations', :action => 'new', :id => params[:id], :detail => detail.id %></td>
+<% else %>
+  <td>予約がいっぱいです</td>
+<% end %>
+<% else %>
+<td>予約済みです</td>
+<% end %>
+<% end %>
+<% end %>
+</table>
+<% end %>
+<% if @review %>
+<% @review.each do |review| %>
+ <table class="attr">
+ <tr>
+  <th>レビュータイトル</th>
+  <td><%= link_to review.reviewtitle, review %></td>
+ </tr>
+ </table>
+<% end %>
+<% end %>
+<% if @current_member %>
+<p><%= link_to "レビューを書く", :controller => 'reviews', :action => 'new', :id => params[:id] %></p>
+<% end %>
+<p><%= link_to "TOP", :trips %></p>

@@ -1,0 +1,29 @@
+<% if @trip %>
+<table class="attr">
+  <tr>
+    <th>ツアー名</th>
+    <td><%= simple_format(@trip.tourname) %></td>
+  </tr>
+  <tr>
+    <th>ツアー内容</th>
+    <td><%= simple_format(@trip.tourcontent) %></td>
+  </tr>
+<% end %>
+<% if @detail %>
+  <tr>
+    <th>ツアー開始日</th>
+    <td><%= @detail.start %></td>
+  </tr>
+  <tr>
+    <th>ツアー終了日</th>
+    <td><%= @detail.end %></td>
+  </tr>
+  <tr>
+    <th>ツアー料金（1人あたり）</th>
+    <td><%= @detail.price %></td>
+  <tr>
+</table>
+<% end %>
+
+
+

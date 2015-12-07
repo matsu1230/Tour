@@ -1,0 +1,27 @@
+<%= image_tag("logo.png", size: "272x48", alt: "沖縄ツアー") %>
+
+<p class = "member">
+<% if @current_member %>
+<%= link_to @current_member.fullname, @current_member %>さん |
+<%= link_to "ログアウト", :session,
+      method: :delete, confirm: "ログアウトしますか？"  %>
+<% else %>
+<%= link_to "ログイン", :session %>
+<% end %>
+<% else %>
+  <% if @current_member %>
+    <% if @current_member.administrator? %>
+&nbsp;|&nbsp; <%= menu_link_to "管理ページ", :admin_root %>
+    <% end %>
+  <% end %>
+</p>
+
+<div class = "menu">
+<%= menu_link_to "TOP", root_path %> |
+<%= link_to "ツアー一覧", :trips%>
+<% if controller.kind_of?(Admin::Base) %>
+| <%= menu_link_to "ツアー管理", :admin_trips %> &nbsp;|&nbsp;
+<%= menu_link_to "予約管理", :admin_reservations %> &nbsp;|&nbsp;
+<%= menu_link_to "レビュー管理", :admin_reviews %> &emsp;
+<% end %>
+</div>

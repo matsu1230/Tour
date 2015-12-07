@@ -1,0 +1,20 @@
+<% @page_title = "ツアー" %>
+
+<h1><%= @page_title %></h1>
+
+<% if @trips.present? %>
+<table class="attr">
+  <tr>
+    <th>ツアー名</th>
+    <th>ツアー内容</th>
+  </tr>
+  <% @trips.each do |trip| %>
+  <tr>
+    <td><%= link_to simple_format(trip.tourname), trip %></td>
+    <td><%= simple_format(trip.tourcontent) %></td>
+  </tr>
+  <% end %>
+</table>
+<% else %>
+<p>ツアーがありません。</p>
+<% end %>

@@ -1,0 +1,51 @@
+<% @page_title = "ツアー" %>
+
+<h1><%= @page_title %></h1>
+
+<table class="attr">
+  <tr>
+    <th>tourname</th>
+    <td><%= @trip.tourname %></td>
+  </tr>
+  <tr>
+    <th>tourcontent</th>
+    <td><%= simple_format(@trip.tourcontent) %></td>
+  </tr>
+    <th>category</th>
+    <td><%= @trip.category %></td>
+  </tr>
+  </tr>
+    <th>category</th>
+    <td><%= @trip.subcategory %></td>
+  </tr>
+<p><%= link_to "編集", [:edit, :admin, @trip] %></p>
+</table>
+
+<% if @detail %>
+<table class="attr">
+  <% @detail.each do |detail| %>
+<tr>
+    <th>ツアー開始日</th>
+    <td><%= detail.start %></td>
+  </tr>
+  <tr>
+    <th>ツアー終了日</th>
+    <td><%= detail.end %></td>
+  </tr>
+  <tr>
+    <th>価格(１人あたり)</th>
+    <td><%= detail.price %></td>
+  </tr>
+  <tr>
+    <th>最大人数</th>
+    <td><%= detail.limit %></td>
+  </tr>
+<td><%= link_to "複製", :controller => 'admin/details', :action => "new", :id => params[:id] %> |
+<%= link_to "編集", :controller => 'admin/details', :action => 'edit', :id => detail.id %> |
+<%= link_to "削除", [:admin, detail], method: :delete,confirm: "本当に削除しますか?" %></tr></td>
+<% end %>
+
+</table>
+<p><%= link_to "新規詳細登録", :controller => 'admin/details', :action => 'new', :id => params[:id] %>
+<% end %>
+<p><%= link_to "ツアー管理", [:admin, :trips] %></p>

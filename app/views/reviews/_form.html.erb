@@ -1,0 +1,13 @@
+    <table class="attr">
+<%= form.hidden_field :trip_id %>
+<%= form.hidden_field :member_id %>
+      <tr>
+        <th><%= form.label :reviewtitle %></th>
+        <td><%= form.text_field :reviewtitle, size: 20 %></td>
+      </tr>
+      <tr>
+        <th><%= form.label :reviewcontent %></th>
+        <td><%= form.text_area :reviewcontent, cols: 40, rows: 3 %></td>
+      </tr>
+    </table>
+

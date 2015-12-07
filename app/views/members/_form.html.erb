@@ -1,0 +1,33 @@
+<%= render "shared/errors", obj: @member %>
+
+<table class="attr">
+  <tr>
+    <th><%= form.label :name %></th>
+    <td><%= form.text_field :name %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :full_name %></th>
+    <td><%= form.text_field :fullname %></td>
+  </tr>
+    <th><%= form.label :email %></th>
+    <td><%= form.text_field :email %></td>
+  </tr>
+  </tr>
+    <th><%= form.label :address %></th>
+    <td><%= form.text_field :address %></td>
+  </tr>
+  </tr>
+    <th><%= form.label :phone %></th>
+    <td><%= form.text_field :phone %></td>
+  </tr>
+<% unless @current_member %>
+  </tr>
+    <th><%= form.label :password %></th>
+    <td><%= form.password_field :password %></td>
+  </tr>
+  </tr>
+    <th><%= form.label :password_confirmation %></th>
+    <td><%= form.password_field :password_confirmation %></td>
+  </tr>
+<% end %>
+</table>

@@ -1,0 +1,20 @@
+<h2>レビュー一覧</h2>
+<% if @reviews.present? %>
+<table class="attr">
+  <tr>
+    <th>id</th>
+    <th>レビュータイトル</th>
+    <th>レビュー内容</th>
+    <th>操作</th>
+  </tr>
+  <% @reviews.each do |review| %>
+  <tr>
+    <td align="right"><%= review.id %></td>
+    <td><%= link_to review.reviewtitle, review %></td>
+    <td><%= review.reviewcontent %></td>
+  </tr>
+  <% end %>
+</table>
+<% else %>
+<p>レビューがありません。</p>
+<% end %>

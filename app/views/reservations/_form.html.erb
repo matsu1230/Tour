@@ -1,0 +1,16 @@
+    <table class="attr">
+       <%= form.hidden_field :detail_id %>
+  <%= form.hidden_field :member_id %>
+      <tr>
+        <th><%= form.label :people %></th>
+        <td><%= form.text_field :people, :maxlength=>2 %></td>
+      </tr>
+      <tr>
+          <th><%= form.label :food %></th>
+          <td><%= form.radio_button :food, "和食" %>和食
+<%= form.radio_button :food, "洋食" %>
+洋食<%= form.radio_button :food, "中華" %>中華</td>
+      </tr>
+    </table>
+
+

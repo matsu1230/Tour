@@ -1,0 +1,29 @@
+<% if controller.kind_of?(Admin::Base) %>
+<div class="menubar" id="admin_menubar">
+
+<li class = "side">
+<p><%= link_to "管理TOP", :admin_root, :class => 'side' %></p>
+<p><%= link_to "ツアー管理", :admin_trips, :class => 'side' %></p>
+<p><%= link_to "予約管理", :admin_reservations, :class => 'side' %></p>
+<p><%= link_to "レビュー管理", :admin_reviews, :class => 'side' %></p>
+<p><%= link_to "TOP", :root, :class => 'side' %></p>
+</li>
+</div>
+
+<% else %>
+<%= form_tag :search_trips, method: :get do %>
+<p><%= text_field_tag "q", params[:q] %>
+<%= submit_tag "検索" %>
+<% end %>
+
+<li class = "side">
+<p><%= link_to "ツアー一覧", :trips, :class => 'side' %></p>
+<p><%= link_to "海", {:controller => 'trips', :action => 'search', :q => '海'},{:class => 'side'} %></p>
+<p><%= link_to "空", {:controller => 'trips', :action => 'search', :q => '空'},{:class => 'side'}%></p>
+<p><%= link_to "山", {:controller => 'trips', :action => 'search', :q => '山'},{:class => 'side'}%></p>
+<p><%= link_to "乗り物", {:controller => 'trips', :action => 'search', :q => '乗り物'},{:class => 'side'}%></p>
+<p><%= link_to "観光", {:controller => 'trips', :action => 'search', :q => '観光'},{:class => 'side'}%></p>
+</li>
+
+<% end %>
+

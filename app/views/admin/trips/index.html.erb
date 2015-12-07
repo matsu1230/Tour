@@ -1,0 +1,30 @@
+<% @page_title = "ツアー" %>
+
+<h1><%= @page_title %></h1>
+
+<p><%= link_to "ツアー新規登録", :new_admin_trip %></p>
+
+<% if @trips.present? %>
+<table class="attr">
+  <tr>
+    <th>ID</th>
+    <th>ツアー名</th>
+    <th>ツアー内容</th>
+    <th>操作</th>
+  </tr>
+  <% @trips.each do |trip| %>
+  <tr>
+    <td align="right"><%= trip.id %></td>
+    <td><%= link_to simple_format(trip.tourname), [:admin, trip] %></td>
+    <td><%= simple_format(trip.tourcontent) %></td>
+    <td>
+      <%= link_to "編集", [:edit, :admin, trip] %> |
+      <%= link_to "削除", [:admin, trip], method: :delete,
+            confirm: "本当に削除しますか?" %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+<% else %>
+<p>ツアー情報がありません。</p>
+<% end %>

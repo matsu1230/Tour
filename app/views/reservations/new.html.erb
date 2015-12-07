@@ -1,0 +1,8 @@
+<% @page_title = "新規ツアー予約" %>
+
+<h1><%= @page_title %></h1>
+<%= render "body" %>
+<%= form_for [:confirmation, @reservation] do |form| %>
+<%= render "form", form: form %>
+    <p><%= form.submit %></p>
+<% end %>

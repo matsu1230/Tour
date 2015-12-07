@@ -1,0 +1,27 @@
+<%= render "shared/errors", obj: @trip %>
+
+<table class="attr">
+  <tr>
+    <th><%= form.label :tourname %></th>
+    <td><%= form.text_field :tourname %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :tourcontent %></th>
+    <td><%= form.text_area :tourcontent %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :category %></th>
+    <td><%= form.radio_button :category, '空'%><% @cat = 1 %>空
+<%= form.radio_button :category, "海" %><% @cat = 2 %>海
+<%= form.radio_button :category, "山" %><% @cat = 3 %>山
+<%= form.radio_button :category, "乗り物" %><% @cat = 4 %>乗り物
+<%= form.radio_button :category, "観光" %><% @cat = 5 %>観光</td>
+  </tr>
+  <tr>
+    <th><%= form.label :subcategory %></th>
+    <td>
+         <% options = [ ["キャンピング","キャンピング"], ["登山","登山"] ] %>
+         <%= form.select :subcategory, options %>
+    </td>
+  </tr>
+</table>

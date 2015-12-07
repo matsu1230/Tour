@@ -1,0 +1,10 @@
+<% @page_title = "キャンセル申請" %>
+
+<h1><%= @page_title %></h1>
+<p>キャンセルをする場合はキャンセルボタンを押してください</p>
+<p>申請後キャンセル処理が行われるまではキャンセルとなりません。</p>
+<%= form_for @reservation do |form| %>
+<% render "form", form: form %>
+<%= form.hidden_field :canceld %>
+    <p><%= form.submit "キャンセル", confirm: "キャンセルしてよろしいでしょか?" %></p>
+<% end %>

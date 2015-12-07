@@ -1,0 +1,19 @@
+<h2>レビュー一覧</h2>
+<% if @reviews.present? %>
+<table class="attr">
+  <tr>
+    <th>ツアー名</th>
+    <th>レビュータイトル</th>
+    <th>ユーザ名</th>
+  </tr>
+  <% @reviews.each do |review| %>
+  <tr>
+    <td align="left"><%= link_to simple_format(review.trip.tourname), [:admin, review.trip] %></td>
+    <td><%= link_to review.reviewtitle, [:admin, review] %></td>
+    <td><%= review.member.fullname %></td>
+  </tr>
+  <% end %>
+</table>
+<% else %>
+<p>レビューがありません。</p>
+<% end %>

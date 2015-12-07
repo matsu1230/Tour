@@ -1,0 +1,58 @@
+<% @page_title = "会員の詳細" %>
+
+<h1><%= @page_title %></h1>
+<table class="attr">
+  <tr>
+    <th>氏名</th>
+    <td><%= @member.fullname %></td>
+  </tr>
+    <th>メールアドレス</th>
+    <td><%= @member.email %></td>
+  </tr>
+  </tr>
+    <th>住所</th>
+    <td><%= @member.address %></td>
+  </tr>
+  </tr>
+    <th>電話番号</th>
+    <td><%= @member.phone %></td>
+  </tr>
+</table>
+<p><%= link_to "編集", [:edit, @member] %></p>
+
+<p>予約ツアー一覧</p>
+<% if @reservation %>
+<% @reservation.each do |reservation| %>
+<% @trip.each do |trip| %>
+<% if trip.id == reservation.detail.trip_id %>
+<% @name = trip.tourname %>
+<% end %>
+<% end %>
+<table class="attr">
+  <tr>
+    <th>予約ツアー</th>
+    <td><%= link_to simple_format(@name), :controller => "reservations", :action => "show", :id => reservation.id %></td>
+    <% if reservation.canceld %>
+    <td>キャンセル申請受付済み</td>
+    <% end %>
+  </tr>
+</table>
+<% end %>
+<% end %>
+<p>マイレビュー一覧</p>
+<% if @review %>
+<% @review.each do |review| %>
+ <table class="attr">
+ <tr>
+  <th>レビュータイトル</th>
+  <td><%= link_to review.reviewtitle, :controller => "reviews", :action => "show", :id => review.id%></td>
+     <td><%= link_to "編集", [:edit, review] %>|
+         <%= link_to "削除", review, method: :delete,
+            confirm: "本当に削除しますか?" %></td>
+ </tr>
+ </table>
+<% end %>
+<% else %>
+ <p>レビューをまだ書いていません</p>
+<% end %>
+<p><%= link_to "TOP", :root %></p>

@@ -1,0 +1,18 @@
+<table class="attr">
+  <tr>
+  <th>ツアー名</th>
+　　<td><%= @trip.tourname %></td>
+  </tr>
+  <tr>
+    <th>レビュータイトル</th>
+    <td><%= @review.reviewtitle %></td>
+  </tr>
+  <tr>
+    <th>レビュー内容</th>
+    <td><%= @review.reviewcontent %></td>
+  </tr>
+    <td>
+      <%= link_to "削除", [:admin, @review], method: :delete,
+            confirm: "本当に削除しますか?" %>
+    </td>
+</table>

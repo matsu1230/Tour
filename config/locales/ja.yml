@@ -1,0 +1,40 @@
+ja:
+  activerecord:
+    models:
+      member: 会員情報
+      trip: ツアー情報
+      member_image: 会員画像
+      entry: ブログ記事
+    attributes:
+      member:
+        name: ログインID
+        full_name: 氏名
+        email: メールアドレス
+        administrator: 管理者
+        password: パスワード
+        address: 住所
+        phone: 電話番号
+        password_confirmation: パスワードの確認
+      detail:
+        start: ツアー開始日
+        end: ツアー終了日
+        price: ツアー料金（１人あたり）
+        limit: 最大人数
+        lowst: 最小人数
+        member_only: 会員限定
+      trip:
+        tourname: ツアー名
+        tourcontent: ツアー内容
+        category: カテゴリー
+        subcategory: サブカテゴリー
+      review:
+        reviewtitle: レビュータイトル
+        reviewcontent: レビュー内容
+
+    errors:
+      messages:
+        invalid_member_name: "は半角英数字で入力してください（_も使えます）。"
+
+  will_paginate:
+    previous_label: "前"
+    next_label: "次"

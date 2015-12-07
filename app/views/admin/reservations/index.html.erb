@@ -1,0 +1,31 @@
+<% @page_title = "予約一覧" %>
+
+<h1><%= @page_title %></h1>
+
+<% if @reservations.present? %>
+<table class="attr">
+  <tr>
+    <th>予約ツアー名</th>
+    <th>予約者氏名</th>
+  </tr>
+  <% @reservations.each do |reservation| %>
+　　<% @detail.each do |detail| %>
+  <% if reservation.detail_id == detail.id %>
+    <% @name = detail.trip.tourname %>
+  <% end %>
+  <% end %>
+  <tr>
+    <td><%= link_to @name, reservation %></td>
+    <td><%= reservation.member.fullname %></td>
+    <% if reservation.canceld == true %>
+        <td>
+      <%= link_to "キャンセル受理", [:admin, reservation], method: :delete,
+            confirm: "キャンセルを受理しますか？" %>
+    </td>
+    <% end %>
+  </tr>
+  <% end %>
+</table>
+<% else %>
+<p>予約がありません。</p>
+<% end %>

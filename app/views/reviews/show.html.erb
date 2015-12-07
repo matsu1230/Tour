@@ -1,0 +1,9 @@
+<% @page_title = "レビューの詳細" %>
+<h1><%= @page_title %></h1>
+
+<%= render "body" %>
+   <p><%= link_to "ツアートップ", :controller => 'trips', :action => 'show', :id => @review.trip_id %></p>
+   <p><%= link_to "マイページへ", @current_member %></p>
+
+
+
